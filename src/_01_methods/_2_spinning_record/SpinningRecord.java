@@ -49,18 +49,25 @@ public class SpinningRecord extends PApplet {
 
     @Override
     public void setup() {
-        
+    	PImage pictureOfRecord;                        //as member variable
+        size(600,600);                                 //in setup method
+        pictureOfRecord= loadImage("record.png");      //in setup method
+        pictureOfRecord.resize(height,width);  
+        image(pictureOfRecord, 0, 0); 
+        //in setup method
     }
-
+    
     @Override
-    public void draw() {
-        
+    public void draw() { //in draw method
+    	while (mousePressed) {
+    		rotateImage(loadImage("record.png"), 2);
+    	}
     }
 
     static public void main(String[] args) {
         PApplet.main(SpinningRecord.class.getName());
+        
     }
-    
     /*********************** DO NOT MODIFY THE CODE BELOW ********************/
 
     void rotateImage(PImage image, int amountToRotate) {
