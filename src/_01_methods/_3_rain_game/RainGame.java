@@ -75,18 +75,24 @@ public class RainGame extends PApplet {
     	fill(0,0,255);
     	image(bucket, mouseX,500);
     	if (rainY > 525) {
-    		checkCatch(75);
+    		checkCatch(randomNumber);
     		rainY = 0;
     		randomNumber = new Random().nextInt(600);
     	}
     	else {
-    		raindropFall(10);
+    		raindropFall(20);
     	}
     }
     
     private void raindropFall(int speed) {
     	ellipse(randomNumber, rainY, 10, 50);
     	rainY += speed;
+    }
+    
+    private void displayScore(int textSize) {
+        fill(0, 0, 0);
+        textSize(textSize);
+        text("Score: " + score, 20, 20);
     }
 
     static public void main(String[] args) {

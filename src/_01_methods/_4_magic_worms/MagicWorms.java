@@ -1,6 +1,8 @@
-package _01_methods._4_magic_worms.MagicWorms;
+package _01_methods._4_magic_worms;
 
 import processing.core.PApplet;
+
+
 
 /*
  * Goal: Create a program that draws a magical pattern using worms!
@@ -32,20 +34,29 @@ import processing.core.PApplet;
 public class MagicWorms extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
+    int x = 0;
+    int y = 0;
 
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
+        background(255,255,255);
     }
 
-    @Override
+    @Override 
     public void setup() {
 
     }
 
     @Override
     public void draw() {
-
+    	fill(255, 0, 0);
+    	for(int i = 0; i < 301; i++) {
+    		ellipse(x, y, 10, 10);
+    		x = i;
+    		y = i;
+    		i++;
+    	}
     }
 
     static public void main(String[] args) {
