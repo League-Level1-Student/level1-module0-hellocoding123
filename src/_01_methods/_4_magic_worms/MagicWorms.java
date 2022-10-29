@@ -34,7 +34,7 @@ import processing.core.PApplet;
 public class MagicWorms extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
-    int x = 0;
+    random x = new random;
     int y = 0;
 
     @Override
