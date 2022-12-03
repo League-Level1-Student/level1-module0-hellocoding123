@@ -1,5 +1,7 @@
 package _01_methods._5_FlappyBird;
 
+import java.util.Random;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -10,9 +12,19 @@ public class FlappyBird extends PApplet {
     int y;
     int birdYVelocity = 0;
     double gravity = 0;
-    int pipeX = 600;
+    int randomNumber = new Random().nextInt(450);
+    int randomNumber2 = new Random().nextInt(450);
+    int pipeX = 1000;
+    int pipeX2 = 1400;
     boolean mouseIsPressed = false;
     PImage bird;
+    
+    boolean intersectsPipes() { 
+        if (y < randomNumber-600 && 100 > pipeX && 100 < (pipeX+80)){
+           return true; }
+       else if (y > randomNumber+200 && 100 > pipeX && 100 < (pipeX+80)) {
+           return true; }
+       else { return false; }
 
     @Override
     public void settings() {
@@ -26,6 +38,7 @@ public class FlappyBird extends PApplet {
 
     @Override
     public void draw() {
+    
     	background(0, 0, 100);
     	fill(255, 255, 0);
     	stroke(255, 255, 0);
@@ -46,12 +59,29 @@ public class FlappyBird extends PApplet {
     		mouseIsPressed = true;
     	}
     	//ellipse(x, y, 50, 50);
-    	bird.resize(100,100);
+    	bird.resize(80,80);
     	image(bird, x, y);
-    	pipeX -= 2;
-    	
+    	pipeX -= 3;
+    	pipeX2 -= 3;
     	fill(50, 255, 0);
-    	rect(pipeX, 100, 80, 200);
+    	rect(pipeX, randomNumber - 600, 80, 600);
+    	rect(pipeX, randomNumber +200, 80, 600);
+    	rect(pipeX2, randomNumber2 - 600, 80, 600);
+    	rect(pipeX2, randomNumber2 +200, 80, 600);
+    	
+    	if (pipeX < 0) {	
+    		int randomNumber = new Random().nextInt(500);
+    		pipeX = 850;
+    	}
+    	if (pipeX2 < 0) {
+    		int randomNumber2 = new Random().nextInt(500);
+    		pipeX2 = 850;
+    	}
+    	
+    	
+    	// if (intersectsPipes = true) {
+    		 //end game
+    	// }
     }
     
     public void mousePressed(int jumpHeight) {
