@@ -12,20 +12,21 @@ public class FlappyBird extends PApplet {
     int y;
     int birdYVelocity = 0;
     double gravity = 0;
-    int randomNumber = new Random().nextInt(450);
-    int randomNumber2 = new Random().nextInt(450);
     int pipeX = 1000;
     int pipeX2 = 1400;
     boolean mouseIsPressed = false;
     PImage bird;
-    
-    boolean intersectsPipes() { 
+    PImage topPipe;
+    PImage bottomPipe;
+    int pipe1Pos = new Random().nextInt(450);
+    int pipe2Pos = new Random().nextInt(450);
+    /*boolean intersectsPipes() { 
         if (y < randomNumber-600 && 100 > pipeX && 100 < (pipeX+80)){
            return true; }
        else if (y > randomNumber+200 && 100 > pipeX && 100 < (pipeX+80)) {
            return true; }
        else { return false; }
-
+	*/
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -34,11 +35,13 @@ public class FlappyBird extends PApplet {
     @Override
     public void setup() {
         bird = loadImage("bird.png");
+        topPipe = loadImage("topPipe.png");
+        bottomPipe = loadImage("bottomPipe.png");
     }
 
     @Override
     public void draw() {
-    
+    	
     	background(0, 0, 100);
     	fill(255, 255, 0);
     	stroke(255, 255, 0);
@@ -64,17 +67,17 @@ public class FlappyBird extends PApplet {
     	pipeX -= 3;
     	pipeX2 -= 3;
     	fill(50, 255, 0);
-    	rect(pipeX, randomNumber - 600, 80, 600);
-    	rect(pipeX, randomNumber +200, 80, 600);
-    	rect(pipeX2, randomNumber2 - 600, 80, 600);
-    	rect(pipeX2, randomNumber2 +200, 80, 600);
+    	rect(pipeX, pipe1Pos - 600, 80, 600);
+    	rect(pipeX, pipe1Pos +200, 80, 600);
+    	rect(pipeX2, pipe2Pos - 600, 80, 600);
+    	rect(pipeX2, pipe2Pos +200, 80, 600);
     	
     	if (pipeX < 0) {	
-    		int randomNumber = new Random().nextInt(500);
+    	    pipe1Pos = new Random().nextInt(450);
     		pipeX = 850;
     	}
     	if (pipeX2 < 0) {
-    		int randomNumber2 = new Random().nextInt(500);
+    		pipe2Pos = new Random().nextInt(450);
     		pipeX2 = 850;
     	}
     	
