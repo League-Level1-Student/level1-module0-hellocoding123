@@ -28,12 +28,15 @@ public class FinishLine {
 			//if (hasCrossedFinishLine) {
 			//6. Use a pop up to say the robot finished and how far it went
 			}
-	else {
+if(hasCrossedFinishLine) {
+		JOptionPane.showMessageDialog(null, "Your robot traveled " + " feet");
+	}
+else {
 		JOptionPane.showMessageDialog(null, "the robot did not finish and went " + "" + " feet.");
 	}
 		//7. Else use a pop up to say the robot did not finish and how far it went
 		
-	}
+	
 	
 	static void crazyMove() {
 		rob.setX(400);
