@@ -26,9 +26,9 @@ public class PhotoQuiz {
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address” )
-
+		String image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vector%2Fsimple-cartoon-of-a-cute-pig-vector-18823694&psig=AOvVaw1p-dp73mzHbnyVjF2ZDEu5&ust=1673210667670000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCIil9s6ptvwCFQAAAAAdAAAAABAD";
 		// 2. create a variable of type "Component" that will hold your image
-
+		Component pig = 
 		// 3. use the "createImage()" method below to initialize your Component
 
 		// 4. add the image to the quiz window
