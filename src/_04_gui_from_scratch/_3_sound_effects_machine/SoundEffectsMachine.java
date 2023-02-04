@@ -10,27 +10,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class soundeffectsmachine implements ActionListener {
+public class SoundEffectsMachine implements ActionListener {
+	
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton button = new JButton("Barking");
+	JButton button2 = new JButton("Bell");
+	JButton button3 = new JButton("Spaceship");
+	JButton button4 = new JButton("Sawing wood");
 
 	public void showButton() {
 		System.out.println("Button clicked");
-		JFrame frame = new JFrame();
 		frame.setVisible(true);
-		JPanel panel = new JPanel();
-		JButton button = new JButton();
-		JButton button2 = new JButton();
-		JButton button3 = new JButton();
-		JButton button4 = new JButton();
 	    panel.add(button);
 	    panel.add(button2);
 	    panel.add(button3);
 	    panel.add(button4);
 	    frame.add(panel);
 	    button.addActionListener(this);
-	    button.setText("Barking");
-	    button2.setText("Bell");
-	    button3.setText("Spaceship");
-	    button4.setText("Sawing wood");
 	    button.setSize(100, 50);
 	    frame.pack();
 	}
@@ -57,9 +54,22 @@ public class soundeffectsmachine implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		playSound("labrador-barking-daniel_simon.wav");
+	public void actionPerformed(ActionEvent arg0) {
+		
+		JButton buttonPressed = (JButton) arg0.getSource();
+		if(buttonPressed == button) {
+			playSound("labrador-barking-daniel_simon.wav");
+		}
+		else if(buttonPressed == button2) {
+			playSound("service-bell_daniel_simion.wav");
+		}
+		else if(buttonPressed == button3) {
+			playSound("alien-spaceship_daniel_simion.wav");
+		}
+		else if(buttonPressed == button4) {
+			playSound("sawing-wood-daniel_simon.wav");
+		}
+			
 	}
 	
 }
